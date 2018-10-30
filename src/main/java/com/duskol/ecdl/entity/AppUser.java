@@ -27,6 +27,10 @@ public class AppUser {
     @Column(name = "email", unique = true)
     private String email;
 
+    @NotBlank
+    @Column(name = "password")
+    private String password;
+
     @OneToMany(mappedBy = "user")
     private List<CompletedTest> completedTests;
 
@@ -70,6 +74,14 @@ public class AppUser {
         this.completedTests = completedTests;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     @Override
     public String toString() {
         return "AppUser{" +
@@ -77,6 +89,8 @@ public class AppUser {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", completedTests=" + completedTests +
                 '}';
     }
 }
