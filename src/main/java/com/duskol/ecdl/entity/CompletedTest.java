@@ -40,6 +40,14 @@ public class CompletedTest {
     @org.hibernate.annotations.CreationTimestamp
     private Calendar completiondDate;
 
+    @ManyToOne
+    @JoinColumn(name = "test_id")
+    private Test test;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private AppUser user;
+
     public long getId() {
         return id;
     }
