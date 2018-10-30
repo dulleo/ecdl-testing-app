@@ -6,13 +6,14 @@ import javax.validation.constraints.NotBlank;
 /**
  * Answer entity class
  */
-@Entity(name="answer")
+@Entity
+@Table(name="answer")
 public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="answer_id")
-    private long id;
+    private Long id;
 
     @NotBlank
     @Column(name = "text", unique = true)
