@@ -4,6 +4,9 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.List;
 
+/**
+ * Test entity class
+ */
 @Entity(name = "test")
 public class Test {
 
