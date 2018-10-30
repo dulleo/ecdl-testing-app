@@ -13,6 +13,7 @@ public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private long id;
 
     @NotBlank
@@ -22,6 +23,10 @@ public class Question {
     @NotBlank
     @Column(name = "type")
     private QuestionType type;
+
+    @ManyToOne
+    @JoinColumn(name = "test_id")
+    private Test test;
 
     @OneToMany(mappedBy = "question")
     @Size(min = 2, max = 10)
@@ -59,12 +64,21 @@ public class Question {
         this.answers = answers;
     }
 
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
     @Override
     public String toString() {
         return "Question{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
                 ", type=" + type +
+                ", test=" + test +
                 ", answers=" + answers +
                 '}';
     }
