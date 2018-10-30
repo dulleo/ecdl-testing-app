@@ -12,7 +12,7 @@ public class Test {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name="id")
+    @Column(name="test_id")
     private long id;
 
     @NotBlank
@@ -36,7 +36,7 @@ public class Test {
     private Boolean bidirectional;
 
     @ManyToOne
-    @JoinColumn(name="id")
+    @JoinColumn(name="user_id")
     private AppUser user;
 
     @OneToMany(mappedBy = "test")
