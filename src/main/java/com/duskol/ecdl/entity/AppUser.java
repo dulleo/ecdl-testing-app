@@ -7,13 +7,14 @@ import java.util.List;
 /**
  * AppUser entity class
  */
-@Entity(name = "user")
+@Entity
+@Table(name = "user")
 public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "user_id")
-    private long id;
+    private Long id;
 
     @NotBlank
     @Column(name = "first_name")
