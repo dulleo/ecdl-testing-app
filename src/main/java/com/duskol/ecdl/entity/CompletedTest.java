@@ -7,13 +7,14 @@ import java.util.Calendar;
 /**
  * CompletedTest entity class
  */
-@Entity(name = "completed_test")
+@Entity
+@Table(name = "completed_test")
 public class CompletedTest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @NotBlank
     @Column(name = "score")
