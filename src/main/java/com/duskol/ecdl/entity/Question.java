@@ -8,13 +8,14 @@ import java.util.List;
 /**
  * Question entity lass
  */
-@Entity(name="question")
+@Entity
+@Table(name="question")
 public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @NotBlank
     @Column(name = "text", unique = true)
