@@ -2,8 +2,9 @@ package com.duskol.ecdl.entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 
-@Entity
+@Entity(name = "user")
 public class AppUser {
 
     @Id
@@ -22,6 +23,9 @@ public class AppUser {
     @NotBlank
     @Column(name = "email", unique = true)
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    private List<CompletedTest> completedTests;
 
     public long getId() {
         return id;
@@ -53,6 +57,14 @@ public class AppUser {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<CompletedTest> getCompletedTests() {
+        return completedTests;
+    }
+
+    public void setCompletedTests(List<CompletedTest> completedTests) {
+        this.completedTests = completedTests;
     }
 
     @Override
